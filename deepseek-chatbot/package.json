@@ -1,0 +1,13 @@
+{
+  "name": "deepseek-chatbot",
+  "version": "1.0.0",
+  "description": "Chatbot using DeepSeek API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "openai": "^4.16.1"
+  }
+}

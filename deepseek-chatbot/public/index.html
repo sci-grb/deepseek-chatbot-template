@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DeepSeek Chatbot</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; }
+    #chat { margin-top: 20px; }
+    .message { margin: 5px 0; }
+  </style>
+</head>
+<body>
+  <h1>DeepSeek Chatbot</h1>
+  <input type="text" id="input" placeholder="Say something..." />
+  <button onclick="sendMessage()">Send</button>
+  <div id="chat"></div>
+
+  <script>
+    async function sendMessage() {
+      const input = document.getElementById('input');
+      const message = input.value;
+      if (!message) return;
+      addMessage('🧑: ' + message);
+      const res = await fetch('/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message })
+      });
+      const data = await res.json();
+      addMessage(data.reply);
+      input.value = '';
+    }
+
+    function addMessage(msg) {
+      const div = document.createElement('div');
+      div.className = 'message';
+      div.textContent = msg;
+      document.getElementById('chat').appendChild(div);
+    }
+  </script>
+</body>
+</html>
