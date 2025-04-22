@@ -6,7 +6,7 @@ const PORT = 3000;
 
 // 使用你的 DeepSeek API key
 const openai = new OpenAI({
-  apiKey: 'YOUR_DEEPSEEK_API_KEY',
+  apiKey: 'sk-963801d60d4a4adf8763c90558dbf0c7',
   baseURL: 'https://api.deepseek.com/v1',
 });
 
